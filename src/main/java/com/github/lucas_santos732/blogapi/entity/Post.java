@@ -2,6 +2,7 @@ package com.github.lucas_santos732.blogapi.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +10,7 @@ import java.time.Instant;
 @Entity
 @Data
 @Table(name = "posts")
+@Setter
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +18,10 @@ public class Post {
     Integer id;
     @Column(name = "title")
     String title;
-    @Lob
     @Column(name = "content")
     String content;
     @ManyToOne
-    @JoinColumn(name = "author_id", nullable = true, foreignKey = @ForeignKey(name = "fk_author_user"))
+    @JoinColumn(name = "author_id", nullable = false, foreignKey = @ForeignKey(name = "fk_post_user"))
     User authorId;
     @CreationTimestamp
     @Column(name = "published_at")
