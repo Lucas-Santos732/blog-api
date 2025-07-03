@@ -1,7 +1,9 @@
 package com.github.lucas_santos732.blogapi.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,6 +11,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.Instant;
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "posts")
 @Setter
 public class Post {
